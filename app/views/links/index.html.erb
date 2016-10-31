@@ -39,7 +39,7 @@
               <td><%= link.title %></td>
               <td><%= link_to "#{link.url}", link.url %></td>
               <td>Unread</td>
-              <td><%= link_to "Mark as Read", { :controller => 'links', :method => "update", :link => link.id }, id: "link-#{link.id}" %></td>
+              <td><%= link_to "Mark as Read", { :controller => 'links', :method => "update", :link_id => link.id }, id: "link-#{link.id}" %></td>
             </tr>
           <% end %>
         <% end %>

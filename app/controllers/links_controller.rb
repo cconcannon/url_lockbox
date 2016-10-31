@@ -18,7 +18,7 @@ class LinksController < ApplicationController
   end
 
   def update
-    link = Link.find(params[:id])
+    link = Link.find(params[:link_id])
     if link.read
       link.update_attribute(:read, false)
     else

@@ -7,7 +7,7 @@ describe "updating existing links" do
     page.set_rack_session(user_id: 1)
     visit("/")
 
-    find('#link-1', "Mark as Read").click
+    find('#link-1').click
 
     expect(current_path).to eq(links_path)
     expect(page).to have_link("Mark Unread")
