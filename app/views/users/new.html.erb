@@ -1,0 +1,29 @@
+<h3>Log In or Sign Up</h5>
+
+<h5>Log In:</h5>
+<%= form_for :user do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :password %>
+  <%= f.text_field :password %>
+
+  <%= f.submit %>
+<% end %>
+
+</br>
+</br>
+
+<h5>Sign Up:</h5>
+<%= form_for :user do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :password %>
+  <%= f.text_field :password %>
+
+  <%= f.label :password_confirm %>
+  <%= f.text_field :password_confirm %>
+
+  <%= f.submit %>
+<% end %>
