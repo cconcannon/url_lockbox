@@ -10,6 +10,8 @@ class Link < ApplicationRecord
 
   before_save :validate_url
 
+  private
+
   def validate_url
     uri = URI.parse(self.url)
     uri.kind_of?(URI::HTTP)
