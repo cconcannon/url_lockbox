@@ -1,24 +1,5 @@
-# README
+# Mock Assessment
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app was created over an 8-hour period as part of the Turing School's curriculum for module 4 of the Back-End Engineering program.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The production version of the app can be found [here](https://http://bloodcurdling-werewolf-54406.herokuapp.com/)
