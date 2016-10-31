@@ -15,5 +15,7 @@ class Link < ApplicationRecord
   def validate_url
     uri = URI.parse(self.url)
     uri.kind_of?(URI::HTTP)
+  rescue URI::InvalidURIError
+    false
   end
 end
