@@ -17,6 +17,16 @@ class LinksController < ApplicationController
     redirect_to root_path
   end
 
+  def update
+    link = Link.find(params[:link_id])
+    if link.read
+      link.update_attribute(:read, false)
+    else
+      link.update_attribute(:read, true)
+    end
+    redirect_to root_path
+  end
+
   private
 
   def link_params

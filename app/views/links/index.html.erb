@@ -19,13 +19,31 @@
     <div class="large-6 medium-6 columns">
       <h3 class="text-center">My Links:</h3>
       <hr>
-      <% @links.map do |link| %>
-        <div class="link_details">
-          <h5 class="text-center"><%= link.title %></h5>
-          <h5 class="text-center"><%= link_to "#{link.url}", link.url %></h5>
-          <hr>
-        </div>
-      <% end %>
+      <table>
+        <tr>
+          <th>Title</th>
+          <th>URL</th>
+          <th>Status</th>
+          <th>-</th>
+        </tr>
+        <% @links.each do |link| %>
+          <% if link.read %>
+            <tr class="strikeout link_details">
+              <td><%= link.title %></td>
+              <td><%= link_to "#{link.url}", link.url %></td>
+              <td>Read</td>
+              <td><%= link_to "Mark Unread", { :controller => 'links', :method => "update", :link => link.id }, id: "link-#{link.id}" %></td>
+            </tr>
+          <% else %>
+            <tr class="link_details">
+              <td><%= link.title %></td>
+              <td><%= link_to "#{link.url}", link.url %></td>
+              <td>Unread</td>
+              <td><%= link_to "Mark as Read", { :controller => 'links', :method => "update", :link_id => link.id }, id: "link-#{link.id}" %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </table>
     </div>
   </div>
 </div>
