@@ -3,19 +3,35 @@ class UsersController < ApplicationController
   end
 
   def create
+    validate_password_confirmation
+  end
+
+  private
+
+  def determine_user_validation_error
+  end
+
+  def user_params
+    params.require(:user).permit(:email, :password)
+  end
+
+  def validate_password_confirmation
+    if params[:user][:password] != params[:user][:password_confirm]
+      flash[:notice] = "Error: Password did not match"
+      redirect_to new_user_path
+    else
+      validate_user_creation
+    end
+  end
+
+  def validate_user_creation
     user = User.new(user_params)
     if user.save
       session[:user_id] = user.id
       redirect_to root_path
     else
-      flash[:notice] = "There was an error in User Creation, please check that you are not already registered or that your password confirmation matches exactly"
+      flash[:notice] = "Error: Email is already in use"
       redirect_to new_user_path
     end
-  end
-
-  private
-
-  def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirm)
   end
 end

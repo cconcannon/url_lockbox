@@ -14,6 +14,7 @@ gem 'foundation-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'pry-rails'
 end
 
 group :test do

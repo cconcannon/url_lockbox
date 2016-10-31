@@ -10,9 +10,9 @@
     <ul class="menu">
       <li>
         <% if current_user? %>
-          <%= link_to "Logout", controller: "sessions", action: "destroy" %>
+          <%= link_to "Logout", "/logout" %>
         <% else %>
-          Authenticated User Not Detected!
+          <%= link_to "Log In", controller: "sessions", action: "new" %>
         <% end %>
       </li>
     </ul>

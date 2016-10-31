@@ -1,34 +1,21 @@
 <div class="callout large primary text-center">
-  <h3>Log In or Sign Up!</h3>
+  <h3>New User Sign Up</h3>
 </div>
 
 <div class="row" id="content">
-  <div class="large-6 medium-6 columns">
-    <h5>Log In:</h5>
-    <%= form_for :user do |f| %>
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-
-      <%= f.label :password %>
-      <%= f.text_field :password %>
-
-      <%= f.submit "Log In" %>
-    <% end %>
-  </div>
-
-  <div class="large-6 medium-6 columns">
+  <div class="large-6 medium-6 large-centered medium-centered columns">
     <h5>Sign Up:</h5>
-    <%= form_for :user do |f| %>
+    <%= form_for :user, url: users_path, html: {method: :post} do |f| %>
       <%= f.label :email %>
       <%= f.text_field :email %>
 
       <%= f.label :password %>
       <%= f.text_field :password %>
 
-      <%= f.label :password_confirm %>
+      <%= f.label :password_confirm, "Password Confirmation" %>
       <%= f.text_field :password_confirm %>
 
-      <%= f.submit "Sign Up" %>
+      <%= f.submit "Sign Up", class: "button large expanded" %>
     <% end %>
   </div>
 </div>

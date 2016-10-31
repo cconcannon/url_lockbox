@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize
-    redirect_to new_user_path unless current_user?
+    flash[:notice] = "You must be logged in to continue!"
+    redirect_to new_session_path unless current_user?
   end
 end
