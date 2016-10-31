@@ -30,7 +30,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path
     else
-      flash[:notice] = "Error: Email is already in use"
+      flash[:alert] = "Error: Email is already in use"
       redirect_to new_user_path
     end
   end

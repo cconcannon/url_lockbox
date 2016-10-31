@@ -42,14 +42,14 @@ describe "new user visiting the site" do
         password: "password"
       }
 
-        visit "/users/new"
-        fill_in "user_email", with: user_params[:email]
-        fill_in "user_password", with: user_params[:password]
-        fill_in "user_password_confirm", with: "not the same"
-        click_on "Sign Up"
+      visit "/users/new"
+      fill_in "user_email", with: user_params[:email]
+      fill_in "user_password", with: user_params[:password]
+      fill_in "user_password_confirm", with: "not the same"
+      click_on "Sign Up"
 
-        expect(page).to have_content "Error: Password did not match"
-        expect(current_path).to eq(new_user_path)
+      expect(page).to have_content "Error: Password did not match"
+      expect(current_path).to eq(new_user_path)
     end
 
     it "must create a new user with valid attributes" do
