@@ -7,15 +7,15 @@ describe "user submitting links" do
       page.set_rack_session(user_id: 1)
       visit("/")
 
-      expect(page).to have_field("link_title")
-      expect(page).to have_field("link_url")
+      expect(page).to have_field("new_link_title")
+      expect(page).to have_field("new_link_url")
     end
 
     it "shows the user their links" do
       page.set_rack_session(user_id: 1)
       visit("/")
 
-      expect(page).to have_selector("link_details", count: 2)
+      expect(page).to have_selector(".link_details", count: 2)
     end
   end
 end

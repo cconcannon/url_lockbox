@@ -1,0 +1,29 @@
+<div class="container" id="content">
+  <div class="row">
+    </br>
+    <div class="large-6 medium-6 columns">
+      <h3 class="text-center">New Link Entry:</h3>
+      <%= form_for :new_link do |f| %>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+
+        <%= f.label :url, "URL" %>
+        <%= f.text_field :url %>
+
+        <%= f.submit "Submit New Link", class: "button large expanded" %>
+      <% end %>
+    </div>
+
+    <div class="large-6 medium-6 columns">
+      <h3 class="text-center">My Links:</h3>
+      <hr>
+      <% @links.map do |link| %>
+        <div class="link_details">
+          <h5 class="text-center"><%= link.title %></h5>
+          <h5 class="text-center"><%= link_to "#{link.url}", link.url %></h5>
+          <hr>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
