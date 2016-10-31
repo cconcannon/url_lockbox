@@ -67,6 +67,7 @@ describe "new user visiting the site" do
 
       expect(current_path).to eq(root_path)
       expect(page).to have_link("Logout")
+      expect(page.get_rack_session_key("user_id")).to_not be_nil
     end
   end
 end

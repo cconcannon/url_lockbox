@@ -1,3 +1,4 @@
+require 'rack_session_access/capybara'
 require 'simplecov'
 SimpleCov.start 'rails'
 

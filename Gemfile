@@ -24,6 +24,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'database_cleaner'
   gem 'simplecov', require: false
+  gem 'rack_session_access'
 end
 
 group :development do
