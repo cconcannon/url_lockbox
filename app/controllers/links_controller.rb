@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-  before_action :require_user
+  before_filter :authorize
 
   def index
   end
