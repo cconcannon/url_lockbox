@@ -5,7 +5,7 @@
 <div class="row" id="content">
   <div class="large-6 large-centered medium-6 medium-centered columns">
     <h5>Log In:</h5>
-    <%= form_for :user do |f| %>
+    <%= form_for :user, url: sessions_path, html: {method: :post} do |f| %>
       <%= f.label :email %>
       <%= f.text_field :email %>
 
