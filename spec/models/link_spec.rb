@@ -13,7 +13,7 @@ describe Link do
     }
 
     link = Link.new(invalid_link_params)
-    expect(link.validate_url_format(link.url)).to be_falsey
+    expect(link.validate_url).to be_falsey
   end
 
   it "returns true for valid URL" do
@@ -24,6 +24,6 @@ describe Link do
     }
 
     link = Link.new(valid_link_params)
-    expect(link.validate_url_format(link.url)).to_not be_falsey
+    expect(link.validate_url).to_not be_falsey
   end
 end
