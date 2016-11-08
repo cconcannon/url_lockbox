@@ -7,7 +7,7 @@ describe "updating existing links" do
     page.set_rack_session(user_id: 1)
     visit("/")
 
-    find('#link-1').click
+    find('#1').click
 
     expect(current_path).to eq(root_path)
     expect(page).to have_link("Change Status")
