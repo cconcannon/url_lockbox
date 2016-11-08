@@ -39,4 +39,30 @@ $(document).ready(function() {
       table.children('tbody').append(row);
     });
   });
+
+  $('#read_filter').click(function() {
+    $.each($links, function(index, link) {
+      if (link.children[3].innerText !== "Read") {
+        $(link).hide();
+      } else {
+        $(link).show();
+      }
+    });
+  });
+
+  $('#unread_filter').click(function() {
+    $.each($links, function(index, link) {
+      if (link.children[3].innerText !== "Unread") {
+        $(link).hide();
+      } else {
+        $(link).show();
+      }
+    });
+  });
+
+  $('#all_filter').click(function() {
+    $.each($links, function(index, link) {
+      $(link).show();
+    });
+  });
 });
