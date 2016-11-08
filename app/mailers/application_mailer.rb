@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "noreply@cohort1605.turing.io"
+  default from: "concach00@gmail.com"
   layout 'mailer'
 
   def send_email(email, link)
