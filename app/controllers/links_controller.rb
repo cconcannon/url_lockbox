@@ -10,7 +10,7 @@ class LinksController < ApplicationController
     if link.validate_url(link.url) && link.save
       flash[:notice] = "Link was Added!"
     else
-      flash[:alert] = "Link is invalid without proper URL & Title"
+      flash[:alert] = "Link is invalid. Check URL, Title, and '\cc:'"
     end
     redirect_to root_path
   end
@@ -25,13 +25,9 @@ class LinksController < ApplicationController
       link.update_attributes(link_params)
       flash[:notice] = "Link was updated!"
     else
-      flash[:alert] = "Link is invalid without proper URL & Title"
+      flash[:alert] = "Link is invalid. Check URL, Title, and '\cc:'"
     end
     redirect_to root_path
-
-    respond_to do |format|
-      format.js
-    end
   end
 
   private
