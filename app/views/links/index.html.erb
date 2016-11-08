@@ -24,7 +24,7 @@
               <td><%= link.title %></td>
               <td><%= link_to "#{link.url}", link.url %></td>
               <td>Read</td>
-              <td><%= link_to "Mark Unread", link_path(id: link.id, link: { read: false }), method: :patch, id: "link-#{link.id}" %></td>
+              <td><%= link_to "Mark Unread", link_path(id: link.id, link: { url: link.url, title: link.title, read: false }), method: :patch, id: "link-#{link.id}" %></td>
             </tr>
           <% else %>
             <tr class="link_details text-center">
@@ -32,7 +32,7 @@
               <td><%= link.title %></td>
               <td><%= link_to "#{link.url}", link.url %></td>
               <td>Unread</td>
-              <td><%= link_to "Mark as Read", link_path(id: link.id, link: { read: true }), method: :patch, id: "link-#{link.id}" %></td>
+              <td><%= link_to "Mark as Read", link_path(id: link.id, link: { url: link.url, title: link.title, read: true }), method: :patch, id: "link-#{link.id}" %></td>
             </tr>
           <% end %>
         <% end %>
