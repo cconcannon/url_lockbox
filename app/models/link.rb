@@ -10,10 +10,10 @@ class Link < ApplicationRecord
 
   def validate_url(url = self.url)
     if url.split(" ").length > 1
-      url = url.split(" ")[0]
+      self.url = url.split(" ")[0]
       LinkEmailProcessor.new(url.split(" ")[2], self) if url.split(" ")[2]
     end
-    uri = URI.parse(url)
+    uri = URI.parse(self.url)
     uri.kind_of?(URI::HTTP)
   rescue URI::InvalidURIError
     false
