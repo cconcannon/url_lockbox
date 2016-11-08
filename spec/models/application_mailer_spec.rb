@@ -9,5 +9,13 @@ RSpec.describe ApplicationMailer, type: :mailer do
     it "renders the subject" do
       expect(email.subject).to eq("Link Forwarded")
     end
+
+    it "renders the receiver email" do
+      expect(email.to).to eq(["chris@turing.io"])
+    end
+
+    it "renders the sender email" do
+      expect(email.from).to eq(["noreply@cohort1605.turing.io"])
+    end
   end
 end
