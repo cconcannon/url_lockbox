@@ -9,7 +9,7 @@ describe "updating existing links" do
 
     find('#link-1').click
 
-    expect(current_path).to eq(links_path)
+    expect(current_path).to eq(root_path)
     expect(page).to have_link("Mark Unread")
   end
 end

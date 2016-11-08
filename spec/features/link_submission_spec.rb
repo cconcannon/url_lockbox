@@ -42,7 +42,7 @@ describe "user submitting links" do
     fill_in "link_url", with: "http://www.mysite.url"
     click_on "Submit New Link"
 
-    expect(page).to have_content("Title was blank")
+    expect(page).to have_content("Link is invalid")
   end
 
   it "gives an error message for invalid url" do
@@ -53,6 +53,6 @@ describe "user submitting links" do
     # fill_in "link_url", with: "invalid"
     click_on "Submit New Link"
 
-    expect(page).to have_content("URL was invalid")
+    expect(page).to have_content("Link is invalid")
   end
 end
