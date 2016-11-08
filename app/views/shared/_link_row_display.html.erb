@@ -2,4 +2,4 @@
 <td><%= link.title %></td>
 <td><%= link_to "#{link.url}", link.url %></td>
 <td>Read</td>
-<td><%= link_to "Change Status", link_path(id: link.id, link: { url: link.url, title: link.title, read: status }), method: :patch, id: "link-#{link.id}" %></td>
+<td><%= link_to "Change Status", link_path(id: link.id, link: { url: link.url, title: link.title, read: status }), method: :patch, id: "link-#{link.id}", remote: true %></td>

@@ -9,6 +9,10 @@
     <div class="large-8 medium-8 columns">
       <h3 class="text-center">My Links:</h3>
       <hr>
+      <div class="text-center">
+        <label>Search by Title:</label>
+        <%= text_field :link, :search %>
+      </div>
       <table>
         <tr>
           <th></th>
@@ -19,11 +23,11 @@
         </tr>
         <% @links.each do |link| %>
           <% if link.read %>
-            <tr class="strikeout link_details text-center">
+            <tr class="strikeout link_details text-center" data-title="<%= link.title %>">
               <%= render partial: "shared/link_row_display", locals: { link: link, status: false } %>
             </tr>
           <% else %>
-            <tr class="link_details text-center">
+            <tr class="link_details text-center" data-title="<%= link.title %>">
               <%= render partial: "shared/link_row_display", locals: { link: link, status: true } %>
             </tr>
           <% end %>
