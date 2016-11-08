@@ -7,10 +7,11 @@ describe "editing existing links" do
     page.set_rack_session(user_id: 1)
     visit("/")
 
-    click_on("#edit-link-1")
+    find("#edit-link-1").click
 
+    save_and_open_page
     expect(page).to have_content("Edit Link Information")
-    fill_in("#new_title", with: "New Link Title")
+    fill_in("Title", with: "New Link Title")
 
     click_on("Save")
 
@@ -18,14 +19,29 @@ describe "editing existing links" do
     expect(page).to have_content("New Link Title")
   end
 
-  xit "allows editing of link url" do
+  it "rejects a blank title" do
     page.set_rack_session(user_id: 1)
     visit("/")
 
-    click_on("#link-1-edit-button")
+    find("#edit-link-1").click
 
     expect(page).to have_content("Edit Link Information")
-    fill_in("#new_url", with: "https://www.givewell.org")
+    fill_in("Title", with: "")
+
+    click_on("Save")
+
+    expect(current_path).to eq(root_path)
+    expect(page).to have_content("Link is invalid")
+  end
+
+  it "allows editing of link url" do
+    page.set_rack_session(user_id: 1)
+    visit("/")
+
+    find("#edit-link-1").click
+
+    expect(page).to have_content("Edit Link Information")
+    fill_in("URL", with: "https://www.givewell.org")
 
     click_on("Save")
 
@@ -33,14 +49,14 @@ describe "editing existing links" do
     expect(page).to have_content("https://www.givewell.org")
   end
 
-  xit "rejects urls which are invalid" do
+  it "rejects urls which are invalid" do
     page.set_rack_session(user_id: 1)
     visit("/")
 
-    click_on("#link-1-edit-button")
+    find("#edit-link-1").click
 
     expect(page).to have_content("Edit Link Information")
-    fill_in("#new_url", with: "something wrong")
+    fill_in("URL", with: "something wrong")
 
     click_on("Save")
 

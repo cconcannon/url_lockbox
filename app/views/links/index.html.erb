@@ -1,12 +1,12 @@
  <div class="container" id="content">
   <div class="row">
     </br>
-    <div class="large-6 medium-6 columns">
+    <div class="large-4 medium-4 columns">
       <h3 class="text-center">New Link Entry:</h3>
       <%= render partial: "shared/link_form" %>
     </div>
 
-    <div class="large-6 medium-6 columns">
+    <div class="large-8 medium-8 columns">
       <h3 class="text-center">My Links:</h3>
       <hr>
       <table>
@@ -15,7 +15,7 @@
           <th>Title</th>
           <th>URL</th>
           <th>Status</th>
-          <th>Read Unread</th>
+          <th>Update Status</th>
         </tr>
         <% @links.each do |link| %>
           <% if link.read %>
@@ -28,6 +28,7 @@
             </tr>
           <% else %>
             <tr class="link_details text-center">
+              <td><%= link_to "Edit", edit_link_path(link), id: "edit-link-#{link.id}" %></td>
               <td><%= link.title %></td>
               <td><%= link_to "#{link.url}", link.url %></td>
               <td>Unread</td>
