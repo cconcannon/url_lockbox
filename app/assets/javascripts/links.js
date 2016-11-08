@@ -19,7 +19,7 @@ $(document).ready(function() {
     var table = $('table');
     var rows = $links.get();
     sorted = rows.sort(function(a, b) {
-      if ($(a).data("title") > $(b).data("title")) {
+      if ($(a).data("title").toLowerCase() > $(b).data("title").toLowerCase()) {
         return 1;
       } else {
         return -1;
@@ -64,5 +64,17 @@ $(document).ready(function() {
     $.each($links, function(index, link) {
       $(link).show();
     });
+  });
+
+  $('.read_status_change').click(function(event) {
+    event.preventDefault();
+
+    if (this.closest('tr').children[3].innerText == "Read") {
+      this.closest('tr').children[3].innerText = "Unread";
+      this.closest('tr').className -= ' strikeout';
+    } else {
+      this.closest('tr').children[3].innerText = "Read";
+      this.closest('tr').className += ' strikeout';
+    }
   });
 });

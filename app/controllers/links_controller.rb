@@ -28,6 +28,10 @@ class LinksController < ApplicationController
       flash[:alert] = "Link is invalid without proper URL & Title"
     end
     redirect_to root_path
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
