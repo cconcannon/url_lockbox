@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
   def validate_password_confirmation
     if params[:user][:password] != params[:user][:password_confirm]
-      flash[:notice] = "Error: Password did not match"
+      flash[:alert] = "Error: Password did not match"
       redirect_to new_user_path
     else
       validate_user_creation

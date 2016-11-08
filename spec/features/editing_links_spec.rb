@@ -9,7 +9,6 @@ describe "editing existing links" do
 
     find("#edit-link-1").click
 
-    save_and_open_page
     expect(page).to have_content("Edit Link Information")
     fill_in("Title", with: "New Link Title")
 
