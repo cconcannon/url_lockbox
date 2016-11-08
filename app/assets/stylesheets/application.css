@@ -45,6 +45,10 @@
   color: black;
 }
 
+.hidden {
+  display: none;
+}
+
 table {
   border-collapse: collapse;
 }

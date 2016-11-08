@@ -9,29 +9,38 @@
     <div class="large-8 medium-8 columns">
       <h3 class="text-center">My Links:</h3>
       <hr>
-      <div class="text-center">
+      <div class="large-4 medium-4 columns text-center">
+        </br>
+        <a id="link_sort">Sort by Title</a>
+        <a id="link_unsort" class="hidden">Unsort</a>
+      </div>
+      <div class="large-4 medium-4 columns text-center">
         <label>Search by Title:</label>
         <%= text_field :link, :search %>
       </div>
       <table>
-        <tr>
-          <th></th>
-          <th>Title</th>
-          <th>URL</th>
-          <th>Status</th>
-          <th>Change Status</th>
-        </tr>
-        <% @links.each do |link| %>
-          <% if link.read %>
-            <tr class="strikeout link_details text-center" data-title="<%= link.title %>">
-              <%= render partial: "shared/link_row_display", locals: { link: link, status: false } %>
-            </tr>
-          <% else %>
-            <tr class="link_details text-center" data-title="<%= link.title %>">
-              <%= render partial: "shared/link_row_display", locals: { link: link, status: true } %>
-            </tr>
+        <thead>
+          <tr>
+            <th class="text-center"></th>
+            <th class="text-center">Title</th>
+            <th class="text-center">URL</th>
+            <th class="text-center">Status</th>
+            <th class="text-center">Change Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @links.each do |link| %>
+            <% if link.read %>
+              <tr class="strikeout link_details text-center" data-title="<%= link.title %>">
+                <%= render partial: "shared/link_row_display", locals: { link: link, status: false } %>
+              </tr>
+            <% else %>
+              <tr class="link_details text-center" data-title="<%= link.title %>">
+                <%= render partial: "shared/link_row_display", locals: { link: link, status: true } %>
+              </tr>
+            <% end %>
           <% end %>
-        <% end %>
+        </tbody>
       </table>
     </div>
   </div>
