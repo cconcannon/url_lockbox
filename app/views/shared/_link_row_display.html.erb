@@ -1,0 +1,5 @@
+<td><%= link_to "Edit", edit_link_path(link), id: "edit-link-#{link.id}" %></td>
+<td><%= link.title %></td>
+<td><%= link_to "#{link.url}", link.url %></td>
+<td><%= link.read ? "Read" : "Unread" %></td>
+<td><%= link_to "Change Status", link_path(id: link.id, link: { url: link.url, title: link.title, read: status }), method: :patch, class: "read_status_change", id: "#{link.id}", remote: true %></td>
