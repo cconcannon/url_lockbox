@@ -28,7 +28,7 @@ describe "user submitting links" do
 
     fill_in "link_title", with: link_params[:title]
     fill_in "link_url", with: link_params[:url]
-    click_on "Submit New Link"
+    click_on "Save"
 
     expect(page).to have_selector(".link_details", count: 3)
     expect(page).to have_content("Great Site!")
@@ -40,7 +40,7 @@ describe "user submitting links" do
     visit("/")
 
     fill_in "link_url", with: "http://www.mysite.url"
-    click_on "Submit New Link"
+    click_on "Save"
 
     expect(page).to have_content("Link is invalid")
   end
@@ -51,7 +51,7 @@ describe "user submitting links" do
 
     fill_in "link_title", with: "url is invalid!"
     # fill_in "link_url", with: "invalid"
-    click_on "Submit New Link"
+    click_on "Save"
 
     expect(page).to have_content("Link is invalid")
   end

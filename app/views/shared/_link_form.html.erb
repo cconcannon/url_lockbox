@@ -1,0 +1,11 @@
+<%= form_for :link do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :url, "URL" %>
+  <%= f.text_field :url %>
+
+  <%= f.hidden_field :user_id, value: session[:user_id] %>
+
+  <%= f.submit "Save", class: "button large expanded" %>
+<% end %>

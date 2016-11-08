@@ -10,8 +10,8 @@ class Link < ApplicationRecord
 
   before_save :validate_url
 
-  def validate_url
-    uri = URI.parse(self.url)
+  def validate_url(url = self.url)
+    uri = URI.parse(url)
     uri.kind_of?(URI::HTTP)
   rescue URI::InvalidURIError
     false

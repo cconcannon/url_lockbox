@@ -1,45 +1,38 @@
-<div class="container" id="content">
+ <div class="container" id="content">
   <div class="row">
     </br>
-    <div class="large-6 medium-6 columns">
+    <div class="large-4 medium-4 columns">
       <h3 class="text-center">New Link Entry:</h3>
-      <%= form_for :link do |f| %>
-        <%= f.label :title %>
-        <%= f.text_field :title %>
-
-        <%= f.label :url, "URL" %>
-        <%= f.text_field :url %>
-
-        <%= f.hidden_field :user_id, value: session[:user_id] %>
-
-        <%= f.submit "Submit New Link", class: "button large expanded" %>
-      <% end %>
+      <%= render partial: "shared/link_form" %>
     </div>
 
-    <div class="large-6 medium-6 columns">
+    <div class="large-8 medium-8 columns">
       <h3 class="text-center">My Links:</h3>
       <hr>
       <table>
         <tr>
+          <th></th>
           <th>Title</th>
           <th>URL</th>
           <th>Status</th>
-          <th>Read Unread</th>
+          <th>Update Status</th>
         </tr>
         <% @links.each do |link| %>
           <% if link.read %>
             <tr class="strikeout link_details text-center">
+              <td><%= link_to "Edit", edit_link_path(link), id: "edit-link-#{link.id}" %></td>
               <td><%= link.title %></td>
               <td><%= link_to "#{link.url}", link.url %></td>
               <td>Read</td>
-              <td><%= link_to "Mark Unread", link_path(id: link.id, link: { read: false }), method: :patch, id: "link-#{link.id}" %></td>
+              <td><%= link_to "Mark Unread", link_path(id: link.id, link: { url: link.url, title: link.title, read: false }), method: :patch, id: "link-#{link.id}" %></td>
             </tr>
           <% else %>
             <tr class="link_details text-center">
+              <td><%= link_to "Edit", edit_link_path(link), id: "edit-link-#{link.id}" %></td>
               <td><%= link.title %></td>
               <td><%= link_to "#{link.url}", link.url %></td>
               <td>Unread</td>
-              <td><%= link_to "Mark as Read", link_path(id: link.id, link: { read: true }), method: :patch, id: "link-#{link.id}" %></td>
+              <td><%= link_to "Mark as Read", link_path(id: link.id, link: { url: link.url, title: link.title, read: true }), method: :patch, id: "link-#{link.id}" %></td>
             </tr>
           <% end %>
         <% end %>
