@@ -7,12 +7,10 @@ class LinksController < ApplicationController
 
   def create
     link = Link.new(link_params)
-    if link.save
+    if link.validate_url && link.save
       flash[:notice] = "Link was Added!"
-    elsif link_params[:title].length > 0
-      flash[:alert] = "URL was invalid"
     else
-      flash[:alert] = "Title was blank"
+      flash[:alert] = "Link is invalid without proper URL & Title"
     end
     redirect_to root_path
   end
