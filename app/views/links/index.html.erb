@@ -1,19 +1,9 @@
-<div class="container" id="content">
+ <div class="container" id="content">
   <div class="row">
     </br>
     <div class="large-6 medium-6 columns">
       <h3 class="text-center">New Link Entry:</h3>
-      <%= form_for :link do |f| %>
-        <%= f.label :title %>
-        <%= f.text_field :title %>
-
-        <%= f.label :url, "URL" %>
-        <%= f.text_field :url %>
-
-        <%= f.hidden_field :user_id, value: session[:user_id] %>
-
-        <%= f.submit "Submit New Link", class: "button large expanded" %>
-      <% end %>
+      <%= render partial: "shared/link_form" %>
     </div>
 
     <div class="large-6 medium-6 columns">
@@ -21,6 +11,7 @@
       <hr>
       <table>
         <tr>
+          <th></th>
           <th>Title</th>
           <th>URL</th>
           <th>Status</th>
@@ -29,6 +20,7 @@
         <% @links.each do |link| %>
           <% if link.read %>
             <tr class="strikeout link_details text-center">
+              <td><%= link_to "Edit", edit_link_path(link), id: "edit-link-#{link.id}" %></td>
               <td><%= link.title %></td>
               <td><%= link_to "#{link.url}", link.url %></td>
               <td>Read</td>
