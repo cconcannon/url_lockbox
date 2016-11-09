@@ -11,7 +11,7 @@ class Link < ApplicationRecord
   def validate_url(url = self.url)
     if url.split(" ").length > 1
       self.url = url.split(" ")[0]
-      send_email(url)
+      send_email(url) if url.split(" ").length == 3
     end
     uri = URI.parse(self.url)
     uri.kind_of?(URI::HTTP)
