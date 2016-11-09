@@ -14,11 +14,13 @@ gem 'foundation-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'rspec-rails'
+  gem 'chromedriver-helper'
   gem 'pry-rails'
+  gem 'selenium-webdriver'
 end
 
 group :test do
-  gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
   gem 'shoulda-matchers'
