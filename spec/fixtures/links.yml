@@ -1,14 +1,14 @@
 link_1:
   id: 1
-  url: http://www.link_1@example.com
-  title: Link 1
+  url: http://www.link_A@example.com
+  title: Link A
   read: false
   user_id: 1
 
 link_2:
   id: 2
-  url: http://www.link_2@example.com
-  title: Link 2
+  url: http://www.link_B@example.com
+  title: Link B
   read: true
   user_id: 1
 

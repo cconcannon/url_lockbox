@@ -1,6 +1,8 @@
 require "rails_helper"
 
 describe "authenticated user visits the site" do
+  fixtures :users
+  
   it "allows them to log in successfully" do
     user_params = {
       email: "authenticated_person@example.com",
