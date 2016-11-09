@@ -11,11 +11,15 @@ class Link < ApplicationRecord
   def validate_url(url = self.url)
     if url.split(" ").length > 1
       self.url = url.split(" ")[0]
-      ApplicationMailer.send_email(url.split(" ")[2], self) if url.split(" ")[2]
+      send_email(url)
     end
     uri = URI.parse(self.url)
     uri.kind_of?(URI::HTTP)
   rescue URI::InvalidURIError
     false
+  end
+
+  def send_email(user_input)
+    ApplicationMailer.send_email(user_input.split(" ")[2], self).deliver_now
   end
 end

@@ -1,6 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
   default from: "concach00@gmail.com"
-  layout 'mailer'
 
   def send_email(email, link)
     @link = link

@@ -15,7 +15,7 @@ RSpec.describe ApplicationMailer, type: :mailer do
     end
 
     it "renders the sender email" do
-      expect(email.from).to eq(["noreply@cohort1605.turing.io"])
+      expect(email.from).to eq(["concach00@gmail.com"])
     end
   end
 end
